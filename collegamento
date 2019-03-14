@@ -12,7 +12,7 @@ const pool =new Pool( {
     password: '*****',
     database: '*****',
     port: 1883,
-    currentSchema:'tsac2019Gallo'
+    currentSchema:'*************'
 });
 
 // constants
@@ -25,7 +25,7 @@ exports.handler = function(event, context, callback) {
     var srcKey    = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, " "));  
     console.log(srcKey);
     // Download the image from S3, transform, and upload to a different S3 bucket.
-    let q = 'INSERT INTO "tsac2019Gallo"."Immagini"("key") VALUES (\''+srcKey+'\');';
+    let q = 'INSERT INTO "*************"."Immagini"("key") VALUES (\''+srcKey+'\');';
     console.log(q);
     pool.query(q, (err, res) => {
         console.log(err, res)
